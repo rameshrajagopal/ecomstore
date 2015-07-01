@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.ecomstore',
             ],
         },
     },
@@ -108,3 +109,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
         STATIC_PATH,
         )
+SITE_NAME = 'Modern Books'
+META_KEYWORDS = 'Books, DVDs, novels, books supplies'
+META_DESCRIPTION = '''
+Modern books is an online books supplier very specific to indian author based books
+'''
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

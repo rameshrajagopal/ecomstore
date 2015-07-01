@@ -31,8 +31,9 @@ class Category(models.Model):
         self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('catelog.category', kwargs={'slug': self.slug})
+        return ('catelog_category', (), {'category_slug': self.slug})
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -65,8 +66,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('catelog.product', kwargs={'slug': slug})
+        return ('catelog_product', (), {'product_slug': self.slug})
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

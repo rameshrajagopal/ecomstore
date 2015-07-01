@@ -1,0 +1,22 @@
+{% extends 'catelog.html' %}
+
+{% block content %}
+   <div class="container">
+   <h2>{{ c.name }} </h2>
+    {{ c.description }}
+   <br /> <br />
+   <hr />
+   <div class="row">
+   {% for p in products %}
+      <div class="col-xs-3">
+        <a href="{{ p.get_absolute_url }}">
+           <img src="{{ p.image.url }}"
+           alt="{{ p.name }}" class="img-thumbnail" />
+           <br />
+           {{ p.name }}
+        </a>
+      </div>
+   {% endfor %}
+   </div>
+   </div>
+{% endblock %}

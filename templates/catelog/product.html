@@ -1,0 +1,44 @@
+{% extends 'catelog.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-4">
+    <img src="{{ p.image.url }}" alt="{{ p.name
+    }}" />
+    </div>
+    <div class="col-xs-8">
+  <h2>{{ p.name }} </h2>
+  Author: <em> {{ p.brand }} </em>
+  <br /> <br />
+  SKU : {{ p.sku }}
+  <br />
+  In categor{{ categories.count | pluralize:"y, ies" }}:
+    {% for c in categories %}
+        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    <br /> <br />
+    {% if p.sale_price %}
+        <span class="text-danger"> Was: <del>${{ p.old_price }} </del></span>
+        <br />
+        <span class="text-success">
+        Now: $ {{ p.price }}
+        </span>
+    {% else %}
+        Now: $ {{ p.price }}
+    {% endif %}
+    <br /><br />
+    [[ add to cart button ]]
+    <br /> <br />
+    </div>
+   </div>
+   <hr />
+   <div class="row">
+   <div class="col-xs-12">
+    <h3> Product Description </h3>
+        {{ p.description }}
+   </div>
+   </div>
+  </div>
+{% endblock %}

@@ -1,6 +1,13 @@
-<ul>
-<li><a href="/catalog/">Home</a></li> <li><a href="/catalog/">About</a></li>
-<li><a href="/catalog/">Privacy</a></li> <li><a
-href="/catalog/">Products</a></li> <li><a href="/catalog/">Contact</a></li>
-</ul>
-<div class="cb"></div>
+<li><a href="{% url 'catelog_home' %}">Home</a></li> 
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span
+    class="caret"></span></a>
+    <ul class="dropdown-menu">
+{% for c in active_categories %}
+   <li> <a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+{% endfor %}
+    </ul>
+</li>
+<li><a href="{% url 'catelog_home' %}">About</a></li>
+<li><a href="{% url 'catelog_home' %}">Privacy</a></li> 
+<li><a href="{% url 'catelog_home' %}">Contact</a></li>
