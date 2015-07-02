@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'music',
     'catelog',
     'cart',
+    'checkout',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +119,8 @@ Modern books is an online books supplier very specific to indian author based bo
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTHNET_POST_URL = 'test.authorize.net'
+AUTHNET_POST_PATH = '/gateway/transact.dll'
+AUTHNET_LOGIN = '2P9gvUdW5wu6'
+AUTHNET_KEY = '7xGq6V93h7DcF2wS'
