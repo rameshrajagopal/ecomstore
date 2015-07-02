@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('catelog.urls')), 
     url(r'^music/', include('music.urls'), name='music'),
+    url(r'^cart/', include('cart.urls')),
 ]

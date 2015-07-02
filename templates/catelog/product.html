@@ -1,4 +1,5 @@
 {% extends 'catelog.html' %}
+{% load catelog_filters %}
 
 {% block content %}
   <div class="container">
@@ -23,13 +24,19 @@
         <span class="text-danger"> Was: <del>${{ p.old_price }} </del></span>
         <br />
         <span class="text-success">
-        Now: $ {{ p.price }}
+        Now: {{ p.price|currency }}
         </span>
     {% else %}
-        Now: $ {{ p.price }}
+        Now: {{ p.price|currency }}
     {% endif %}
     <br /><br />
-    [[ add to cart button ]]
+    <form method="post" action="." class="cart"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br />
+        <input type="submit" value="Add To Cart" name="submit" alt="Add To Cart" />
+    </form>
+    <div class="cb"></div>
     <br /> <br />
     </div>
    </div>

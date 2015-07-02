@@ -1,0 +1,6 @@
+{% with cart_item_count as cart_count %} 
+<a href="{% url 'show_cart' %}">
+Cart
+<span class="badge">{{ cart_count }}</span>
+</a>
+{% endwith %}
